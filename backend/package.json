@@ -1,0 +1,11 @@
+{
+  "name": "goldenhour-backend",
+  "version": "0.0.0",
+  "private": true,
+  "description": "GoldenHour backend — repository foundation (Ticket 01). Application code is added in a later ticket.",
+  "scripts": {
+    "dev": "echo \"GoldenHour backend: not yet implemented (Ticket 01 foundation).\" && exit 0",
+    "start": "echo \"GoldenHour backend: not yet implemented (Ticket 01 foundation).\" && exit 0",
+    "test": "echo \"GoldenHour backend: tests not yet implemented (Ticket 01 foundation).\" && exit 0"
+  }
+}

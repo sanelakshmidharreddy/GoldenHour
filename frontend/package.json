@@ -1,0 +1,10 @@
+{
+  "name": "goldenhour-frontend",
+  "version": "0.0.0",
+  "private": true,
+  "description": "GoldenHour frontend — repository foundation (Ticket 01). Application code is added in a later ticket.",
+  "scripts": {
+    "dev": "echo \"GoldenHour frontend: not yet implemented (Ticket 01 foundation).\" && exit 0",
+    "build": "echo \"GoldenHour frontend: not yet implemented (Ticket 01 foundation).\" && exit 0"
+  }
+}
