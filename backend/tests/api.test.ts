@@ -13,16 +13,12 @@ describe('API Routing & 404 Handling', () => {
       assert.strictEqual(res.status, 200);
 
       const body = await res.json() as any;
-      assert.deepStrictEqual(body, {
-        name: 'GoldenHour API',
-        version: 'v1',
-        status: 'active',
-        environment: 'test',
-        endpoints: {
-          health: '/health',
-          apiV1: '/api/v1',
-        },
-      });
+      assert.strictEqual(body.name, 'GoldenHour API');
+      assert.strictEqual(body.version, 'v1');
+      assert.strictEqual(body.status, 'active');
+      assert.strictEqual(body.environment, 'test');
+      assert.ok(body.endpoints.incident);
+      assert.ok(body.endpoints.knowledgeBase);
     } finally {
       await server.close();
     }

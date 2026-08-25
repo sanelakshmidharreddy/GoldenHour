@@ -6,6 +6,7 @@ export interface TestServer {
   origin: string;
   fetch(path: string, init?: RequestInit): Promise<Response>;
   close(): Promise<void>;
+  resetCookies(): void;
 }
 
 export function startTestServer(app: Express): Promise<TestServer> {
@@ -19,12 +20,35 @@ export function startTestServer(app: Express): Promise<TestServer> {
       const port = addr.port;
       const origin = `http://127.0.0.1:${port}`;
 
+      let cookieJar = '';
+
       const testServer: TestServer = {
         port,
         origin,
-        fetch(path: string, init?: RequestInit) {
+        async fetch(path: string, init?: RequestInit) {
           const url = path.startsWith('http') ? path : `${origin}${path}`;
-          return fetch(url, init);
+          const headers = new Headers(init?.headers);
+
+          if (!headers.has('Cookie') && cookieJar) {
+            headers.set('Cookie', cookieJar);
+          }
+
+          const res = await fetch(url, {
+            ...init,
+            headers,
+          });
+
+          const setCookie = res.headers.get('set-cookie');
+          if (setCookie) {
+            // Save sid cookie
+            const firstPart = setCookie.split(';')[0];
+            cookieJar = firstPart;
+          }
+
+          return res;
+        },
+        resetCookies() {
+          cookieJar = '';
         },
         close() {
           return new Promise<void>((res, rej) => {

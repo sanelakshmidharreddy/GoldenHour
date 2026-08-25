@@ -118,10 +118,18 @@ npm test          # Run unit & integration test suite (node:test)
 npm run typecheck # Run TypeScript compiler in type-check mode
 ```
 
-### Endpoints (Ticket 02 Foundation)
+### Endpoints (Ticket 03)
 
 - `GET /health` — Returns JSON health status, environment, version, and ISO timestamp.
 - `GET /api/v1` — Returns JSON API status and endpoint directory.
+- `POST /api/v1/incident/intake` — Submits or updates incident information (financial loss, suspect info, fraud type) with Zod validation.
+- `GET /api/v1/incident/current` — Returns current active incident state and Golden Hour urgency status.
+- `GET /api/v1/incident/guidance` — Returns tailored emergency steps, 1930 helpline guidance, and evidence checklist.
+- `GET /api/v1/incident/artifacts` — Returns generated 1930 call script, NCRP payload reference, and formal FIR complaint draft.
+- `POST /api/v1/incident/reset` — Resets active incident state for the session.
+- `GET /api/v1/kb/playbooks` — Lists all verified fraud playbooks.
+- `GET /api/v1/kb/playbooks/:id` — Returns a specific fraud playbook.
+- `GET /api/v1/kb/contacts` — Returns verified emergency contact helplines.
 
 ---
 
@@ -134,14 +142,14 @@ the locked MVP, or rewrite Knowledge Base facts from code.
 
 ---
 
-## Known Ticket 02 Boundaries & Limitations
+## Known Ticket 03 Boundaries & Limitations
 
-- **No AI endpoints**: OpenAI API integration is deferred to future tickets.
-- **In-Memory Session**: Uses the Express MemoryStore for local development and test isolation; replaceable with a distributed store in production.
-- **Knowledge Base Data**: The loader safely parses and indexes existing knowledge base structures and gracefully handles `{}` schema placeholders.
+- **No external AI dependency required**: Deterministic Golden Hour urgency assessment and artifact generation logic are executed locally without external AI API calls.
+- **In-Memory Session**: Uses the session foundation for local development and test isolation.
+- **Knowledge Base Facts**: Consults static verified facts from `knowledge-base/` and provides safe fallback guidance if JSON files are empty placeholders.
 
 ---
 
 ## Status
 
-This repository is at **Ticket 02 — Backend Foundation**. Core HTTP server, security headers, routing, session foundation, resilient KB loader, and test suite are implemented and verified.
+This repository is at **Ticket 03 — Incident Intake, Guidance & Artifacts API**. Core intake, session state management, Golden Hour window assessment, knowledge-base guidance resolution, and 1930/NCRP/FIR artifact generation are implemented and verified with 28 automated tests.
