@@ -1,11 +1,29 @@
 {
   "name": "goldenhour-backend",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "private": true,
-  "description": "GoldenHour backend — repository foundation (Ticket 01). Application code is added in a later ticket.",
+  "description": "GoldenHour backend — production-minded TypeScript + Express foundation (Ticket 02).",
+  "main": "dist/server.js",
   "scripts": {
-    "dev": "echo \"GoldenHour backend: not yet implemented (Ticket 01 foundation).\" && exit 0",
-    "start": "echo \"GoldenHour backend: not yet implemented (Ticket 01 foundation).\" && exit 0",
-    "test": "echo \"GoldenHour backend: tests not yet implemented (Ticket 01 foundation).\" && exit 0"
+    "dev": "node dist/server.js",
+    "build": "node node_modules/typescript/lib/tsc.js",
+    "start": "node dist/server.js",
+    "test": "node node_modules/typescript/lib/tsc.js -p tsconfig.test.json && node --test dist_tests/tests/api.test.js dist_tests/tests/app.test.js dist_tests/tests/config.test.js dist_tests/tests/health.test.js dist_tests/tests/kb.test.js dist_tests/tests/security.test.js",
+    "test:watch": "node --test --watch dist_tests/tests/api.test.js dist_tests/tests/app.test.js dist_tests/tests/config.test.js dist_tests/tests/health.test.js dist_tests/tests/kb.test.js dist_tests/tests/security.test.js",
+    "typecheck": "node node_modules/typescript/lib/tsc.js --noEmit"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "helmet": "^7.1.0",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.12.7",
+    "typescript": "^5.4.5"
+  },
+  "engines": {
+    "node": ">=20.0.0"
   }
 }

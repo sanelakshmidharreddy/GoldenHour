@@ -15,22 +15,18 @@ are the project source of truth and live under `docs/`.
 
 ## Technology stack
 
-This ticket establishes only the repository foundation. The runtime stack is:
-
 - **Frontend** — TypeScript (web). A framework selection (e.g. React/Vite) will
   be introduced by a later ticket. For now, `frontend/src/` is laid out with
   `components/`, `context/`, and `api/` to receive that work.
-- **Backend** — TypeScript on Node.js. `backend/src/` is laid out with
-  `routes/`, `ai/`, `session/`, `security/`, and `middleware/`.
+- **Backend** — TypeScript (Node 20+) with Express, Helmet, CORS, Zod validation,
+  express-session foundation, and Jest test runner.
 - **Knowledge Base** — Static, verified JSON under `knowledge-base/`. This is
   the canonical source of facts (helplines, fraud playbooks, NCRP mapping,
   contacts, expectations, sources) and is the only authoritative reference
   the application consults.
-- **Tests** — `tests/scenarios/` holds reproducible fraud-scenario fixtures
-  used by future acceptance tests.
-
-No AI provider, no real API keys, and no application endpoints exist yet.
-Ticket 01 only scaffolds the repository.
+- **Tests** — Unit and integration tests under `backend/tests/` using Node 20
+  native test runner (`node:test`). `tests/scenarios/` holds reproducible
+  fraud-scenario fixtures for future acceptance tests.
 
 ---
 
@@ -40,11 +36,18 @@ Ticket 01 only scaffolds the repository.
 GoldenHour/
   backend/
     src/
-      routes/        # HTTP route handlers (added in a later ticket)
-      ai/            # Knowledge-base-driven responder (added in a later ticket)
-      session/       # Session state (added in a later ticket)
-      security/      # Security primitives (added in a later ticket)
-      middleware/    # Express-style middleware (added in a later ticket)
+      app.ts         # Express app factory & middleware wiring
+      server.ts      # HTTP server startup with graceful shutdown
+      config/        # Validated environment configuration (Zod)
+      kb/            # Resilient Knowledge Base loader & types
+      middleware/    # Request logger, 404 handler, centralized error handler
+      routes/        # Health check (/health) and API v1 router (/api/v1)
+      security/      # Helmet, CORS, body parser limits
+      session/       # Session middleware foundation
+    tests/           # Backend test suite (health, api, config, security, kb)
+    package.json
+    tsconfig.json
+    tsconfig.test.json
   frontend/
     src/
       components/    # UI components (added in a later ticket)
@@ -67,6 +70,61 @@ GoldenHour/
 
 ---
 
+## Backend Development
+
+### Installation
+
+```bash
+cd backend
+npm install
+```
+
+### Environment Configuration
+
+Copy `.env.example` to `.env` (or create `.env` in the root/backend):
+
+```bash
+cp .env.example .env
+```
+
+Configurable variables:
+- `PORT` — HTTP port for the backend server (default: `3000`).
+- `NODE_ENV` — `development` | `production` | `test` (default: `development`).
+- `PUBLIC_BACKEND_ORIGIN` — CORS allowed origin (default: `http://localhost:3000`).
+- `KNOWLEDGE_BASE_DIR` — Path to `knowledge-base/` directory (defaults to auto-detected local path).
+- `SESSION_SECRET` — Session secret key (required in production; safe default in dev/test).
+- `OPENAI_API_KEY` / `OPENAI_MODEL` — Placeholders for future AI ticket.
+
+### Running in Development
+
+```bash
+cd backend
+npm run dev
+```
+
+### Building for Production
+
+```bash
+cd backend
+npm run build
+npm start
+```
+
+### Running Tests and Type Checking
+
+```bash
+cd backend
+npm test          # Run unit & integration test suite (node:test)
+npm run typecheck # Run TypeScript compiler in type-check mode
+```
+
+### Endpoints (Ticket 02 Foundation)
+
+- `GET /health` — Returns JSON health status, environment, version, and ISO timestamp.
+- `GET /api/v1` — Returns JSON API status and endpoint directory.
+
+---
+
 ## Project source of truth
 
 The authoritative specification, architecture audit, verified knowledge base,
@@ -76,15 +134,14 @@ the locked MVP, or rewrite Knowledge Base facts from code.
 
 ---
 
-## Environment configuration
+## Known Ticket 02 Boundaries & Limitations
 
-Copy `.env.example` to `.env` and fill in placeholder values for local
-development. `.env` is ignored by git; `.env.example` is tracked and contains
-only placeholders.
+- **No AI endpoints**: OpenAI API integration is deferred to future tickets.
+- **In-Memory Session**: Uses the Express MemoryStore for local development and test isolation; replaceable with a distributed store in production.
+- **Knowledge Base Data**: The loader safely parses and indexes existing knowledge base structures and gracefully handles `{}` schema placeholders.
 
 ---
 
 ## Status
 
-This repository is at **Ticket 01 — Repository Foundation**. No application
-behaviour has been implemented yet.
+This repository is at **Ticket 02 — Backend Foundation**. Core HTTP server, security headers, routing, session foundation, resilient KB loader, and test suite are implemented and verified.
