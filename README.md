@@ -97,29 +97,37 @@ Configurable variables:
 
 ### Running in Development
 
-```bash
-cd backend
-npm run dev
-```
-
-### Building for Production
+### Running the Full Application (Frontend + Backend)
 
 ```bash
-cd backend
+# 1. Build frontend client assets
+cd frontend
 npm run build
+
+# 2. Start the backend server (serves both API and frontend UI on http://localhost:3000)
+cd ../backend
 npm start
 ```
 
 ### Running Tests and Type Checking
 
 ```bash
+# Backend tests & typecheck
 cd backend
-npm test          # Run unit & integration test suite (node:test)
+npm test          # Run unit, integration & E2E test suites (node:test)
 npm run typecheck # Run TypeScript compiler in type-check mode
+
+# Frontend typecheck & build
+cd ../frontend
+npm run typecheck # Run TypeScript compiler on frontend source
+npm run build     # Compile TypeScript to public/dist/
 ```
 
-### Endpoints (Ticket 03)
+### Endpoints (Ticket 04)
 
+- `GET /` — Serves GoldenHour citizen frontend application.
+- `GET /styles.css` — Serves emergency response stylesheet.
+- `GET /dist/app.js` — Serves compiled frontend application module.
 - `GET /health` — Returns JSON health status, environment, version, and ISO timestamp.
 - `GET /api/v1` — Returns JSON API status and endpoint directory.
 - `POST /api/v1/incident/intake` — Submits or updates incident information (financial loss, suspect info, fraud type) with Zod validation.
@@ -142,14 +150,15 @@ the locked MVP, or rewrite Knowledge Base facts from code.
 
 ---
 
-## Known Ticket 03 Boundaries & Limitations
+## Known Ticket 04 Boundaries & Critical Disclosures
 
-- **No external AI dependency required**: Deterministic Golden Hour urgency assessment and artifact generation logic are executed locally without external AI API calls.
-- **In-Memory Session**: Uses the session foundation for local development and test isolation.
-- **Knowledge Base Facts**: Consults static verified facts from `knowledge-base/` and provides safe fallback guidance if JSON files are empty placeholders.
+- **Emergency First-Response Triage**: GoldenHour helps citizens capture information and format ready-to-use artifacts in the critical 2-hour Golden Hour window. It is **not** a government agency and does not directly freeze bank accounts or guarantee fund recovery.
+- **Draft Templates**: Generated FIR complaints and 1930 verbal call scripts are reference templates that must be reviewed by the victim before submission.
+- **Judge Demo Mode**: An instant "Load Demo Scenario" button is provided on the landing screen, allowing hackathon judges to experience the complete end-to-end incident response journey and artifact generation in 5 seconds.
+- **In-Memory Session**: Uses the session foundation for single-instance local development and test isolation.
 
 ---
 
 ## Status
 
-This repository is at **Ticket 03 — Incident Intake, Guidance & Artifacts API**. Core intake, session state management, Golden Hour window assessment, knowledge-base guidance resolution, and 1930/NCRP/FIR artifact generation are implemented and verified with 28 automated tests.
+This repository is at **Ticket 04 — Frontend + End-to-End User Journey**. The complete end-to-end citizen response application is built, verified with 32 automated tests across 13 test suites, and ready for demonstration.

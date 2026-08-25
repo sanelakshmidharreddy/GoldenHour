@@ -1,3 +1,5 @@
+import path from 'path';
+import fs from 'fs';
 import express, { Express } from 'express';
 import { AppConfig, config as defaultConfig } from './config';
 import { createSecurityHeadersMiddleware, createCorsMiddleware, JSON_BODY_LIMIT, URLENCODED_BODY_LIMIT } from './security';
@@ -43,6 +45,22 @@ export function createApp(options?: Partial<AppConfig> | CreateAppOptions): Expr
   // Application Routes
   app.use(createHealthRouter(appConfig));
   app.use('/api/v1', createApiV1Router(appConfig));
+
+  // Static Frontend Serving
+  const candidates = [
+    path.resolve(process.cwd(), '../frontend/public'),
+    path.resolve(process.cwd(), 'frontend/public'),
+    path.resolve(__dirname, '../../../frontend/public'),
+    path.resolve(__dirname, '../../frontend/public'),
+  ];
+  const frontendPublicDir = candidates.find((dir) => fs.existsSync(dir));
+
+  if (frontendPublicDir) {
+    app.use(express.static(frontendPublicDir, { extensions: ['html', 'js'] }));
+    app.get('/', (_req, res) => {
+      res.sendFile(path.join(frontendPublicDir, 'index.html'));
+    });
+  }
 
   // Optional custom test/plugin routes before 404 handler
   if (configureRoutes) {

@@ -4,7 +4,9 @@
   "private": true,
   "description": "GoldenHour frontend — repository foundation (Ticket 01). Application code is added in a later ticket.",
   "scripts": {
-    "dev": "echo \"GoldenHour frontend: not yet implemented (Ticket 01 foundation).\" && exit 0",
-    "build": "echo \"GoldenHour frontend: not yet implemented (Ticket 01 foundation).\" && exit 0"
+    "dev": "node ../backend/node_modules/typescript/lib/tsc.js -p tsconfig.json --watch",
+    "build": "node ../backend/node_modules/typescript/lib/tsc.js -p tsconfig.json",
+    "typecheck": "node ../backend/node_modules/typescript/lib/tsc.js -p tsconfig.json --noEmit",
+    "test": "node ../backend/node_modules/typescript/lib/tsc.js -p tsconfig.json --noEmit"
   }
 }

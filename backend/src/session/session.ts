@@ -154,16 +154,19 @@ export function createSessionMiddleware(
     // Attach response listener to persist session and set cookie
     const originalEnd = res.end.bind(res);
     res.end = function (...args: any[]): any {
-      if (isDestroyed) {
-        res.setHeader(
-          'Set-Cookie',
-          `${cookieName}=; Path=/; Expires=Thu, 01 Jan 1970 00:00:00 GMT; HttpOnly; SameSite=Lax${
-            config.isProduction ? '; Secure' : ''
-          }`
-        );
-      } else {
+      if (!isDestroyed) {
         store.set(sessionId!, sessionData, ttlMs);
-        if (isNew) {
+      }
+
+      if (!res.headersSent) {
+        if (isDestroyed) {
+          res.setHeader(
+            'Set-Cookie',
+            `${cookieName}=; Path=/; Expires=Thu, 01 Jan 1970 00:00:00 GMT; HttpOnly; SameSite=Lax${
+              config.isProduction ? '; Secure' : ''
+            }`
+          );
+        } else if (isNew) {
           const signed = signSessionId(sessionId!, config.sessionSecret);
           const maxAgeSec = Math.floor(ttlMs / 1000);
           res.setHeader(
