@@ -33,11 +33,14 @@ export function renderUrgencyBanner(goldenHour: GoldenHourAssessment | null): st
       </div>
 
       <div class="urgency-details">
-        <p class="urgency-prob"><strong>Freeze Probability:</strong> ${freezeProbabilityDescription}</p>
+        <p class="urgency-prob"><strong>Freeze Window Assessment:</strong> ${freezeProbabilityDescription}</p>
         <div class="urgency-action-box">
           <span class="action-label">IMMEDIATE MANDATORY ACTION:</span>
           <strong>${recommendedImmediateAction}</strong>
         </div>
+        <p class="urgency-disclaimer-note">
+          <small><em>* Operational triage heuristic based on 1930 / CFCFRMS inter-bank response windows. Not a government classification or freeze guarantee.</em></small>
+        </p>
       </div>
     </section>
   `;

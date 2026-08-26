@@ -38,9 +38,14 @@ export function renderArtifactsViewer(artifacts: GeneratedArtifacts | null): str
               <h4>${helplineCallScript.title}</h4>
               <span class="artifact-badge badge-real">Ready for verbal reporting to 1930 operator</span>
             </div>
-            <button class="btn btn-outline btn-copy" data-target="script-content">
-              <span>📋 Copy Script</span>
-            </button>
+            <div class="artifact-actions">
+              <button class="btn btn-outline btn-copy" data-target="script-content">
+                <span>📋 Copy Script</span>
+              </button>
+              <button class="btn btn-outline" id="btn-download-script">
+                <span>💾 Download Script (.txt)</span>
+              </button>
+            </div>
           </div>
 
           <div class="script-box" id="script-content">

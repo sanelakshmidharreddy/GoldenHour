@@ -10,7 +10,7 @@ export function renderHeader(isDemo = false): string {
         <div class="header-actions">
           ${
             isDemo
-              ? `<span class="badge badge-demo" title="Currently running a simulated fraud incident">DEMO SCENARIO ACTIVE</span>`
+              ? `<span class="badge badge-demo" title="Currently running a simulated fraud incident">DEMO SCENARIO (SYNTHETIC DATA)</span>`
               : `<span class="badge badge-live">LIVE SYSTEM</span>`
           }
           <a href="tel:1930" class="btn btn-emergency" aria-label="Call National Cyber Crime Helpline 1930">

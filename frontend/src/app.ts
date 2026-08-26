@@ -202,7 +202,43 @@ export class App {
       });
     });
 
-    // 6. Download FIR Draft as Text File
+    // 6. Download 1930 Script and FIR Draft as Text Files
+    const btnDownloadScript = document.getElementById('btn-download-script');
+    if (btnDownloadScript && state.artifacts?.helplineCallScript) {
+      btnDownloadScript.addEventListener('click', () => {
+        const script = state.artifacts!.helplineCallScript;
+        const textLines = [
+          `==================================================`,
+          `GOLDENHOUR — 1930 / BANK EMERGENCY CALL SCRIPT`,
+          `==================================================`,
+          `Generated: ${new Date().toLocaleString('en-IN')}`,
+          `Target Helplines: ${script.targetHelplines.join(' | ')}`,
+          ``,
+          `QUICK REFERENCE:`,
+          `- Total Loss: ${script.quickReferenceData.totalAmountLost}`,
+          `- Primary UTR / Ref: ${script.quickReferenceData.primaryTransactionRef}`,
+          `- Suspect Target: ${script.quickReferenceData.beneficiaryTarget}`,
+          `- Complainant: ${script.quickReferenceData.victimName}`,
+          ``,
+          `VERBAL SCRIPT TO READ TO OPERATOR:`,
+          ...script.scriptBullets.map((b, i) => `${i + 1}. "${b}"`),
+          ``,
+          `==================================================`,
+          `Notice: Prepared preparation template — Review before official submission.`,
+        ].join('\n');
+
+        const blob = new Blob([textLines], { type: 'text/plain;charset=utf-8' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `GoldenHour_1930_CallScript_${state.incident?.id.slice(0, 8) || 'Draft'}.txt`;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+      });
+    }
+
     const btnDownloadFir = document.getElementById('btn-download-fir');
     if (btnDownloadFir && state.artifacts?.firDraft) {
       btnDownloadFir.addEventListener('click', () => {

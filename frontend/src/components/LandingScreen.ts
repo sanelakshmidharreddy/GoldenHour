@@ -25,14 +25,19 @@ export function renderLandingScreen(): string {
 
         <div class="action-card demo-card">
           <div class="card-tag">Evaluation / Judge Fast-Path</div>
-          <h3>Try a Simulated Incident</h3>
+          <h3>Simulated Incident (Judge Demo)</h3>
           <p>
-            Instantly load a realistic UPI scam scenario (Electricity Bill Scam, Rs. 45,000 lost) to review the complete GoldenHour response and artifacts.
+            Instantly load a realistic synthetic UPI scam scenario (Electricity Bill Scam, Rs. 45,000 lost) to review the complete GoldenHour response, urgency assessment, and generated artifacts.
           </p>
           <button id="btn-load-demo" class="btn btn-secondary btn-large">
-            <span>⚡ Load Demo Scenario (UPI Fraud)</span>
+            <span>⚡ Load Judge Demo (UPI Scam)</span>
           </button>
         </div>
+      </div>
+
+      <div class="judge-hint-callout">
+        <span class="icon">💡</span>
+        <span><strong>Judges & Evaluators:</strong> Click <strong>"Load Judge Demo"</strong> to test the 2-hour Golden Hour calculation, 1930 emergency verbal script, and FIR complaint draft in under 5 seconds.</span>
       </div>
 
       <section class="how-it-works" aria-label="How GoldenHour Works">

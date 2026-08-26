@@ -277,6 +277,29 @@ main {
   flex: 1;
 }
 
+.judge-hint-callout {
+  background-color: rgba(56, 189, 248, 0.08);
+  border: 1px dashed rgba(56, 189, 248, 0.4);
+  border-radius: var(--radius-md);
+  padding: 0.85rem 1.25rem;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.9rem;
+  color: #e0f2fe;
+}
+
+.judge-hint-callout .icon {
+  font-size: 1.25rem;
+}
+
+.urgency-disclaimer-note {
+  margin-top: 0.5rem;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+}
+
 /* How It Works */
 .how-it-works {
   background-color: var(--bg-surface);
