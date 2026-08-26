@@ -3,7 +3,7 @@ import assert from 'node:assert';
 import { createApp } from '../src/app';
 import { startTestServer } from './helper';
 
-describe('Production Smoke & Release Readiness Tests (Ticket 06)', () => {
+describe('Production Smoke & Release Readiness Tests (Ticket 06 & 07)', () => {
   const app = createApp({ nodeEnv: 'test', isTest: true });
 
   it('GET /health returns machine-readable JSON health metadata', async () => {
@@ -56,7 +56,7 @@ describe('Production Smoke & Release Readiness Tests (Ticket 06)', () => {
     }
   });
 
-  it('GET /dist/app.js serves compiled ES2020 application modules', async () => {
+  it('GET /dist/app.js serves compiled ES2020 application entrypoint', async () => {
     const server = await startTestServer(app);
     try {
       const res = await server.fetch('/dist/app.js');
@@ -65,12 +65,20 @@ describe('Production Smoke & Release Readiness Tests (Ticket 06)', () => {
       assert.ok(js.includes('App'));
       assert.ok(js.includes('btn-start-intake') || js.includes('btn-load-demo'));
       assert.ok(js.includes('renderLandingScreen'));
+    } finally {
+      await server.close();
+    }
+  });
 
-      // Also verify component module serving
-      const compRes = await server.fetch('/dist/components/LandingScreen.js');
-      assert.strictEqual(compRes.status, 200);
-      const compJs = await compRes.text();
-      assert.ok(compJs.includes('reimagined-section') || compJs.includes('Reimagining the Citizen Response Experience'));
+  it('GET /dist/components/LandingScreen.js serves compiled public-service reimagination component', async () => {
+    const server = await startTestServer(app);
+    try {
+      const res = await server.fetch('/dist/components/LandingScreen.js');
+      assert.strictEqual(res.status, 200);
+      const js = await res.text();
+      assert.ok(js.includes('reimagined-section'));
+      assert.ok(js.includes('Reimagining the Citizen Response Experience'));
+      assert.ok(js.includes('Designed Around India\'s Official Reporting Channels'));
     } finally {
       await server.close();
     }
