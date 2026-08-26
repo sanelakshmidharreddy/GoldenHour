@@ -8,8 +8,8 @@
     "dev": "node dist/server.js",
     "build": "node node_modules/typescript/lib/tsc.js",
     "start": "node dist/server.js",
-    "test": "node node_modules/typescript/lib/tsc.js -p tsconfig.test.json && node --test dist_tests/tests/api.test.js dist_tests/tests/app.test.js dist_tests/tests/config.test.js dist_tests/tests/health.test.js dist_tests/tests/kb.test.js dist_tests/tests/security.test.js dist_tests/tests/incident.test.js dist_tests/tests/guidance.test.js dist_tests/tests/artifacts.test.js dist_tests/tests/frontendE2E.test.js",
-    "test:watch": "node --test --watch dist_tests/tests/api.test.js dist_tests/tests/app.test.js dist_tests/tests/config.test.js dist_tests/tests/health.test.js dist_tests/tests/kb.test.js dist_tests/tests/security.test.js dist_tests/tests/incident.test.js dist_tests/tests/guidance.test.js dist_tests/tests/artifacts.test.js dist_tests/tests/frontendE2E.test.js",
+    "test": "node node_modules/typescript/lib/tsc.js -p tsconfig.test.json && node --test dist_tests/tests/api.test.js dist_tests/tests/app.test.js dist_tests/tests/config.test.js dist_tests/tests/health.test.js dist_tests/tests/kb.test.js dist_tests/tests/security.test.js dist_tests/tests/incident.test.js dist_tests/tests/guidance.test.js dist_tests/tests/artifacts.test.js dist_tests/tests/frontendE2E.test.js dist_tests/tests/scenarios.test.js",
+    "test:watch": "node --test --watch dist_tests/tests/api.test.js dist_tests/tests/app.test.js dist_tests/tests/config.test.js dist_tests/tests/health.test.js dist_tests/tests/kb.test.js dist_tests/tests/security.test.js dist_tests/tests/incident.test.js dist_tests/tests/guidance.test.js dist_tests/tests/artifacts.test.js dist_tests/tests/frontendE2E.test.js dist_tests/tests/scenarios.test.js",
     "typecheck": "node node_modules/typescript/lib/tsc.js --noEmit"
   },
   "dependencies": {

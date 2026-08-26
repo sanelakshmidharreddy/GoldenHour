@@ -1,1 +1,30 @@
-{}
+{
+  "id": "investment_scam",
+  "name": "Investment / Part-Time Job / Task Scam",
+  "category": "Online Financial Fraud",
+  "urgencyLevel": "critical",
+  "ncrpCategory": "Online Financial Fraud -> Investment / Part-time Job / Task Scam",
+  "helplineToCall": "1930",
+  "summary": "Victims are solicited via WhatsApp or Telegram with promises of daily income for simple tasks (liking videos, rating hotels), then pressured into transferring large sums into fake trading or crypto platforms with fabricated account balances.",
+  "rules": [
+    "No genuine company pays high daily income for liking videos or giving online reviews.",
+    "Never transfer personal funds into individual savings accounts / mule accounts for corporate task verification."
+  ],
+  "initialActionChecklist": [
+    "Immediately dial 1930 with transaction UTR numbers to request freezing of mule beneficiary accounts.",
+    "Stop all further transfers immediately — do not pay additional 'withdrawal fees', 'customs clearance', or 'taxes'.",
+    "Export and preserve complete Telegram/WhatsApp group chat logs with timestamps and sender IDs.",
+    "Compile a structured ledger of all bank transfers, beneficiary account numbers, IFSC codes, and UPI handles.",
+    "Lodge a comprehensive complaint on cybercrime.gov.in with the transaction ledger attached."
+  ],
+  "evidenceRequired": [
+    "Complete bank statement showing all transaction UTR numbers and debited amounts",
+    "Screenshots of the fake investment portal/dashboard showing fictitious profits/balances",
+    "Export of Telegram / WhatsApp chat history, handler handles, and group invite links",
+    "Beneficiary bank details (account numbers, IFSC, UPI VPAs) provided by the fraudsters"
+  ],
+  "source": "MHA I4C Advisory on Part-Time Job & Crypto Investment Scams",
+  "sourceUrl": "https://www.cybercrime.gov.in",
+  "authority": "I4C / MHA",
+  "verifiedAt": "2026-08-26"
+}

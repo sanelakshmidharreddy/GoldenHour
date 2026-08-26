@@ -1,0 +1,38 @@
+{
+  "id": "scenario_02_otp_fraud",
+  "name": "OTP / Vishing Fraud (30 minutes ago)",
+  "description": "Victim received a call from an imposter claiming to be a bank credit card executive offering reward point redemption.",
+  "intakePayload": {
+    "fraudType": "otp_fraud",
+    "incidentOccurredAtOffsetMinutes": 30,
+    "description": "Caller claiming to be HDFC bank executive asked for OTP to redeem pending reward points worth Rs. 5,000. Instead Rs. 50,000 was debited from credit card.",
+    "victim": {
+      "name": "Sunita Rao",
+      "phone": "9876500002",
+      "stateOrCity": "Telangana",
+      "district": "Hyderabad",
+      "policeStationJurisdiction": "Cyber Crime PS Hyderabad"
+    },
+    "transactions": [
+      {
+        "amount": 50000,
+        "currency": "INR",
+        "transactionRef": "CC/981203948172",
+        "debitedBankOrApp": "HDFC Bank Credit Card",
+        "beneficiaryDetails": "PAYTM*MERCHANT8912"
+      }
+    ],
+    "suspect": {
+      "phoneNumbers": ["9123456789"]
+    }
+  },
+  "expectedResults": {
+    "urgencyWindow": "GOLDEN_HOUR",
+    "isWithinGoldenHour": true,
+    "totalAmount": 50000,
+    "requiredHelpline": "1930",
+    "expectedPlaybookId": "otp_fraud",
+    "guidanceContains": ["1930", "hotlist", "password", "Chakshu"],
+    "firDraftContains": ["Sunita Rao", "CC/981203948172", "50,000", "9123456789"]
+  }
+}

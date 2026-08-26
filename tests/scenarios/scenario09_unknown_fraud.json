@@ -1,0 +1,35 @@
+{
+  "id": "scenario_09_unknown_fraud",
+  "name": "Unknown / Unclassified Cyber Fraud",
+  "description": "General or unclassified cyber financial fraud scenario. System must return safe generic guidance without fabricated facts or crashes.",
+  "intakePayload": {
+    "fraudType": "unknown",
+    "incidentOccurredAtOffsetMinutes": 40,
+    "description": "Unexplained online debits occurred on digital wallet without any shared link or call.",
+    "victim": {
+      "name": "Kavita Nair",
+      "phone": "9876500009",
+      "stateOrCity": "Kerala",
+      "district": "Ernakulam",
+      "policeStationJurisdiction": "Kochi Cyber Police Station"
+    },
+    "transactions": [
+      {
+        "amount": 18000,
+        "currency": "INR",
+        "transactionRef": "WLT/908129381290",
+        "debitedBankOrApp": "Paytm Wallet",
+        "beneficiaryDetails": "Merchant_991823"
+      }
+    ],
+    "suspect": {}
+  },
+  "expectedResults": {
+    "urgencyWindow": "GOLDEN_HOUR",
+    "isWithinGoldenHour": true,
+    "totalAmount": 18000,
+    "expectedPlaybookId": "unknown",
+    "guidanceContains": ["1930", "bank", "evidence", "cybercrime.gov.in"],
+    "firDraftContains": ["Kavita Nair", "18,000", "WLT/908129381290"]
+  }
+}

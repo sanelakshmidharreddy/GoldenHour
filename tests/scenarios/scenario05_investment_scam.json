@@ -1,0 +1,48 @@
+{
+  "id": "scenario_05_investment_scam",
+  "name": "Part-Time Task & Investment Scam (Multi-transaction)",
+  "description": "Victim joined a Telegram group promising daily income for Google reviews, deposited money across two transactions for VIP crypto tasks.",
+  "intakePayload": {
+    "fraudType": "investment_scam",
+    "incidentOccurredAtOffsetMinutes": 90,
+    "description": "Added to Telegram group 'Global Review Tasks'. After earning Rs. 500 initial bonus, was told to transfer larger amounts to unlock high returns. Handlers now refuse withdrawal without 30% tax fee.",
+    "victim": {
+      "name": "Priyanka Roy",
+      "phone": "9876500005",
+      "stateOrCity": "West Bengal",
+      "district": "Kolkata",
+      "policeStationJurisdiction": "Lalbazar Cyber Police Station"
+    },
+    "transactions": [
+      {
+        "amount": 45000,
+        "currency": "INR",
+        "transactionRef": "NEFT/N089123849182",
+        "debitedBankOrApp": "Kotak Mahindra Bank",
+        "beneficiaryDetails": "Mule Trading Pvt Ltd / Account: 91823901928"
+      },
+      {
+        "amount": 75000,
+        "currency": "INR",
+        "transactionRef": "IMPS/409819283719",
+        "debitedBankOrApp": "Kotak Mahindra Bank",
+        "beneficiaryDetails": "crypto.fund.vip@icici"
+      }
+    ],
+    "suspect": {
+      "phoneNumbers": ["9711099221"],
+      "upiIds": ["crypto.fund.vip@icici"],
+      "bankAccounts": ["Mule Trading Pvt Ltd / 91823901928"],
+      "urlsOrWebsites": ["https://vip-crypto-earn-india.online"]
+    }
+  },
+  "expectedResults": {
+    "urgencyWindow": "GOLDEN_HOUR",
+    "isWithinGoldenHour": true,
+    "totalAmount": 120000,
+    "requiredHelpline": "1930",
+    "expectedPlaybookId": "investment_scam",
+    "guidanceContains": ["1930", "Telegram", "mule", "ledger"],
+    "firDraftContains": ["Priyanka Roy", "1,20,000", "NEFT/N089123849182", "IMPS/409819283719"]
+  }
+}

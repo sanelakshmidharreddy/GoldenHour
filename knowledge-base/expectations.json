@@ -1,1 +1,57 @@
-{}
+{
+  "bank_reporting": {
+    "authority": "Reserve Bank of India (RBI)",
+    "requiredFields": [
+      "Debited Bank Account Number",
+      "Exact Transaction Date and Time",
+      "Amount in INR",
+      "Unique Transaction Reference (UTR) / Txn ID",
+      "Mode of Payment (UPI/IMPS/NEFT/Card)"
+    ],
+    "recommendedEvidence": [
+      "Bank account statement highlighting unauthorized debits",
+      "Transaction confirmation SMS from bank",
+      "Written dispute / incident declaration form"
+    ],
+    "filingWindowHours": 72,
+    "notes": "Under RBI circular DBR.No.Leg.BC.78/09.07.005/2017-18, reporting unauthorized transactions to the bank within 3 working days limits customer liability to zero for third-party breaches."
+  },
+  "ncrp_1930": {
+    "authority": "Indian Cybercrime Coordination Centre (I4C), MHA",
+    "requiredFields": [
+      "Complainant Mobile Number",
+      "Debited Bank / Wallet Name",
+      "Debited Account Number / UPI ID",
+      "12-digit UTR Number",
+      "Transaction Amount",
+      "Beneficiary Bank / Wallet / UPI Handle",
+      "Incident Date and Timestamp"
+    ],
+    "recommendedEvidence": [
+      "Screenshots of UPI app payment receipt",
+      "Suspect mobile number, UPI handle, or phishing link",
+      "SMS alerts received from the bank"
+    ],
+    "filingWindowHours": 2,
+    "notes": "Reporting within the 2-hour Golden Hour window triggers rapid inter-bank freeze alerts on the CFCFRMS network before funds are layered across multiple mule accounts or withdrawn."
+  },
+  "police_fir": {
+    "authority": "State Cyber Crime Police / Local Police Station (SHO)",
+    "requiredFields": [
+      "Formal Written Complaint signed by victim",
+      "Chronological summary of the deception / modus operandi",
+      "List of all fraudulent transactions with UTR numbers",
+      "Identified suspect phone numbers, URLs, or apps",
+      "Jurisdictional details (Complainant residence / place where transaction occurred)"
+    ],
+    "recommendedEvidence": [
+      "Certified Bank Statement / Passbook photocopy showing debit entries",
+      "Transaction SMS / Email alerts with timestamps",
+      "Printed screenshots of chats/messages with the fraudster",
+      "Copy of government photo ID (Aadhaar / Voter ID / PAN)",
+      "NCRP 1930 complaint acknowledgement slip (if already registered)"
+    ],
+    "filingWindowHours": 168,
+    "notes": "Required for formal registration of First Information Report (FIR) under Sections 66C and 66D of the IT Act and applicable sections of Bharatiya Nyaya Sanhita (BNS) / IPC."
+  }
+}

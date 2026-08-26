@@ -1,0 +1,39 @@
+{
+  "id": "scenario_03_phishing_link",
+  "name": "Phishing Link / Utility Bill Scam (45 minutes ago)",
+  "description": "Victim clicked an SMS link threatening power disconnection and entered debit card details on a spoofed portal.",
+  "intakePayload": {
+    "fraudType": "phishing",
+    "incidentOccurredAtOffsetMinutes": 45,
+    "description": "Received SMS warning electricity will be disconnected at 9:30 PM due to unpaid bill. Clicked link and entered card details on spoofed payment portal.",
+    "victim": {
+      "name": "Rajesh Nair",
+      "phone": "9876500003",
+      "stateOrCity": "Maharashtra",
+      "district": "Pune",
+      "policeStationJurisdiction": "Shivajinagar Cyber Cell"
+    },
+    "transactions": [
+      {
+        "amount": 12500,
+        "currency": "INR",
+        "transactionRef": "PG/839102847192",
+        "debitedBankOrApp": "ICICI Bank Debit Card",
+        "beneficiaryDetails": "BILLDESK*UTILITY*FAKE"
+      }
+    ],
+    "suspect": {
+      "phoneNumbers": ["9822099881"],
+      "urlsOrWebsites": ["http://electricity-bill-update-state.com/pay"]
+    }
+  },
+  "expectedResults": {
+    "urgencyWindow": "GOLDEN_HOUR",
+    "isWithinGoldenHour": true,
+    "totalAmount": 12500,
+    "requiredHelpline": "1930",
+    "expectedPlaybookId": "phishing",
+    "guidanceContains": ["phishing", "passwords", "Chakshu", "antivirus"],
+    "firDraftContains": ["Rajesh Nair", "electricity-bill-update-state.com", "12,500"]
+  }
+}

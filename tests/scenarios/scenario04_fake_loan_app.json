@@ -1,0 +1,39 @@
+{
+  "id": "scenario_04_fake_loan_app",
+  "name": "Illegal Loan App / Extortion Scam (Recent)",
+  "description": "Victim downloaded an instant loan APK which accessed contact permissions and is now blackmailing victim with morphed photos.",
+  "intakePayload": {
+    "fraudType": "fake_loan_app",
+    "incidentOccurredAtOffsetMinutes": 60,
+    "description": "Downloaded InstantCashFast7Days APK. Credited Rs. 3,500 without full consent and now demanding Rs. 15,000 with threats to call all contacts from phonebook.",
+    "victim": {
+      "name": "Deepak Patel",
+      "phone": "9876500004",
+      "stateOrCity": "Gujarat",
+      "district": "Ahmedabad",
+      "policeStationJurisdiction": "Ahmedabad Cyber Police Station"
+    },
+    "transactions": [
+      {
+        "amount": 3500,
+        "currency": "INR",
+        "transactionRef": "IMPS/930192847192",
+        "debitedBankOrApp": "Axis Bank",
+        "beneficiaryDetails": "FINTECH*LOAN*DISBURSE"
+      }
+    ],
+    "suspect": {
+      "phoneNumbers": ["9898989898"],
+      "appNames": ["InstantCashFast7Days.apk"],
+      "upiIds": ["instant.repay@ybl"]
+    }
+  },
+  "expectedResults": {
+    "urgencyWindow": "GOLDEN_HOUR",
+    "isWithinGoldenHour": true,
+    "totalAmount": 3500,
+    "expectedPlaybookId": "fake_loan_app",
+    "guidanceContains": ["uninstall", "permissions", "extortion", "Sachet", "contacts"],
+    "firDraftContains": ["Deepak Patel", "InstantCashFast7Days.apk", "3,500"]
+  }
+}

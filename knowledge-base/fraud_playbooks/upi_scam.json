@@ -1,1 +1,31 @@
-{}
+{
+  "id": "upi_scam",
+  "name": "UPI / QR Code Fraud",
+  "category": "Financial Fraud",
+  "urgencyLevel": "critical",
+  "ncrpCategory": "Financial Fraud -> UPI Fraud",
+  "helplineToCall": "1930",
+  "summary": "Fraudsters trick victims into scanning QR codes, accepting UPI collect requests, or entering their UPI PIN under the false pretext of receiving payments or refunds.",
+  "rules": [
+    "Remember: UPI PIN is entered ONLY to DEBIT money from your account, NEVER to receive money.",
+    "Scanning a QR code always DEBITS money from your account.",
+    "Do not trust payment confirmation screenshots sent by unknown buyers on marketplaces like OLX."
+  ],
+  "initialActionChecklist": [
+    "Immediately dial 1930 (National Cyber Crime Helpline) to report transaction details for rapid inter-bank freeze.",
+    "Note down the exact 12-digit UTR (Unique Transaction Reference) number from your bank SMS or UPI app receipt.",
+    "Call your debited bank customer care to report unauthorized debit and request a hotlisting / freeze on netbanking and UPI.",
+    "Take clear screenshots of transaction debit messages, UPI app transaction history, and suspect chat history.",
+    "Do not accept any further collect requests or click any link sent by the suspect."
+  ],
+  "evidenceRequired": [
+    "Screenshot of the UPI transaction details with UTR number and beneficiary VPA",
+    "Debit SMS received from the bank showing timestamp and account balance deduction",
+    "Screenshots of WhatsApp / OLX / chat logs with the suspect",
+    "Bank statement showing the unauthorized debit entry"
+  ],
+  "source": "National Payments Corporation of India (NPCI) UPI Guidelines & MHA I4C",
+  "sourceUrl": "https://www.cybercrime.gov.in",
+  "authority": "NPCI / I4C",
+  "verifiedAt": "2026-08-26"
+}

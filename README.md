@@ -141,24 +141,31 @@ npm run build     # Compile TypeScript to public/dist/
 
 ---
 
-## Project source of truth
+## Knowledge Base Sources
 
-The authoritative specification, architecture audit, verified knowledge base,
-and engineering reconnaissance live in `docs/`. Code in this repository must
-remain consistent with those documents. Do **not** redesign the product, change
-the locked MVP, or rewrite Knowledge Base facts from code.
+Knowledge Base facts in `knowledge-base/` are source-backed from official Indian regulatory and cybercrime authorities:
+- **Ministry of Home Affairs (MHA) & Indian Cybercrime Coordination Centre (I4C)**: Operates the National Cyber Crime Helpline `1930` and the Citizen Financial Cyber Fraud Reporting and Management System (CFCFRMS) for inter-bank transaction freeze requests (`https://cybercrime.gov.in`).
+- **National Cyber Crime Reporting Portal (NCRP)**: Canonical categories for cyber financial fraud, incident filing requirements, and evidence preservation standards (`https://cybercrime.gov.in`).
+- **Reserve Bank of India (RBI)**: Customer liability framework under RBI Circular DBR.No.Leg.BC.78/09.07.005/2017-18 for unauthorized electronic banking transactions (zero liability when reported to bank within 3 working days), and RBI Sachet portal for illegal lending apps (`https://sachet.rbi.org.in`).
+- **National Payments Corporation of India (NPCI)**: UPI transaction protocols, dispute resolution workflows, and PIN entry safety rules (`https://www.npci.org.in`).
+- **Department of Telecommunications (DoT)**: Sanchar Saathi and Chakshu citizen facility for reporting fraudulent calls, SMS, and SIM swap prevention (`https://sancharsaathi.gov.in`).
+
+> **Notice & Disclaimers:**
+> - GoldenHour provides emergency response guidance, triage calculations, and structured templates; it is **not** a government agency and does not directly freeze bank accounts or guarantee fund recovery.
+> - Generated FIR complaint drafts and 1930 scripts are reference templates that must be reviewed and verified by the citizen before submission.
+> - Emergency contacts should be verified against official government sources before production deployment.
 
 ---
 
-## Known Ticket 04 Boundaries & Critical Disclosures
+## Known Ticket 05 Boundaries & Critical Disclosures
 
-- **Emergency First-Response Triage**: GoldenHour helps citizens capture information and format ready-to-use artifacts in the critical 2-hour Golden Hour window. It is **not** a government agency and does not directly freeze bank accounts or guarantee fund recovery.
-- **Draft Templates**: Generated FIR complaints and 1930 verbal call scripts are reference templates that must be reviewed by the victim before submission.
-- **Judge Demo Mode**: An instant "Load Demo Scenario" button is provided on the landing screen, allowing hackathon judges to experience the complete end-to-end incident response journey and artifact generation in 5 seconds.
-- **In-Memory Session**: Uses the session foundation for single-instance local development and test isolation.
+- **Source-Backed Guidance**: All 7 fraud playbooks (`upi_scam`, `otp_fraud`, `phishing`, `fake_loan_app`, `investment_scam`, `sim_swap`, `unknown`) and 5 core fact files contain source metadata mapped to official Indian regulatory frameworks.
+- **Scenario Acceptance Coverage**: Validated with 10 reproducible scenarios in `tests/scenarios/` covering immediate triage, evidence checklists, validation rejection, and resilient empty-KB fallback.
+- **Emergency First-Response Triage**: GoldenHour helps citizens capture information and format ready-to-use artifacts in the critical 2-hour Golden Hour window without external AI dependencies.
+- **Judge Demo Mode**: An instant "Load Demo Scenario" button is available on the frontend landing screen to experience the complete triage journey in seconds.
 
 ---
 
 ## Status
 
-This repository is at **Ticket 04 — Frontend + End-to-End User Journey**. The complete end-to-end citizen response application is built, verified with 32 automated tests across 13 test suites, and ready for demonstration.
+This repository is at **Ticket 05 — Knowledge Base Content + Scenario Acceptance Tests**. The knowledge base is fully populated with verified Indian cyber-fraud response facts and playbooks, and verified with 43 automated tests across 14 test suites.

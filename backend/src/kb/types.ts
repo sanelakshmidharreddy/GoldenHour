@@ -51,6 +51,13 @@ export interface FraudPlaybook {
   helplineToCall?: string;
   ncrpCategory?: string;
   firDraftTemplate?: string;
+  summary?: string;
+  rules?: string[];
+  source?: string;
+  sourceUrl?: string;
+  sourceTitle?: string;
+  authority?: string;
+  verifiedAt?: string;
   [key: string]: unknown;
 }
 

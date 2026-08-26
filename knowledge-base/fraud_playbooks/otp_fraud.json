@@ -1,1 +1,30 @@
-{}
+{
+  "id": "otp_fraud",
+  "name": "OTP / Vishing / Banking Impersonation Fraud",
+  "category": "Financial Fraud",
+  "urgencyLevel": "critical",
+  "ncrpCategory": "Financial Fraud -> OTP / Vishing / Banking Impersonation",
+  "helplineToCall": "1930",
+  "summary": "Fraudsters call posing as bank managers, credit card representatives, or KYC verification officers, manipulating victims into sharing OTPs, CVVs, or card credentials.",
+  "rules": [
+    "No bank, payment app, or government official will EVER ask for your OTP, CVV, or passwords over the phone.",
+    "Never share OTPs received for credit card reward redemption, KYC renewal, or account unblocking."
+  ],
+  "initialActionChecklist": [
+    "Immediately dial 1930 (National Cyber Crime Helpline) with transaction reference and suspect caller details.",
+    "Call your bank customer care immediately to block/hotlist compromised debit/credit cards and freeze Netbanking access.",
+    "Immediately change your Netbanking passwords and UPI PIN from a clean, secure device.",
+    "Preserve call logs showing the suspect caller's phone number, call time, and duration.",
+    "Report the fraudulent phone number on the DoT Chakshu facility (sancharsaathi.gov.in)."
+  ],
+  "evidenceRequired": [
+    "Call log screenshot showing caller phone number, call time, and duration",
+    "Bank SMS showing transaction debit and the OTP request message",
+    "Bank account / credit card statement showing unauthorized transactions",
+    "Audio recording of the call (if available)"
+  ],
+  "source": "Reserve Bank of India (RBI) Safe Digital Banking Advisory & MHA I4C",
+  "sourceUrl": "https://www.rbi.org.in",
+  "authority": "RBI / I4C",
+  "verifiedAt": "2026-08-26"
+}

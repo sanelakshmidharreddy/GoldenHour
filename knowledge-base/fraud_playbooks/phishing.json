@@ -1,1 +1,30 @@
-{}
+{
+  "id": "phishing",
+  "name": "Phishing Link / Malicious Website Fraud",
+  "category": "Online Financial Fraud",
+  "urgencyLevel": "high",
+  "ncrpCategory": "Online Financial Fraud -> Phishing / Fake Link / Malicious Website",
+  "helplineToCall": "1930",
+  "summary": "Deceptive SMS, emails, or WhatsApp messages claiming urgent electricity bill payment, courier address updates, or lottery prizes, leading to spoofed websites that steal funds and credentials.",
+  "rules": [
+    "Never click on shortened links or unverified URLs received via SMS or WhatsApp.",
+    "Official utility departments (electricity, water, gas) never send disconnection threats containing personal mobile numbers for payment."
+  ],
+  "initialActionChecklist": [
+    "If money was debited, immediately call 1930 with transaction UTR numbers to request beneficiary freeze.",
+    "If bank credentials or card details were entered on the phishing page, immediately change your passwords and block cards via your bank app.",
+    "Take screenshots of the phishing SMS/message displaying the sender header, timestamp, and full URL.",
+    "Report the malicious URL and sender number on cybercrime.gov.in and Chakshu.",
+    "Run an antivirus or malware scan on your device if any APK or attachment was downloaded."
+  ],
+  "evidenceRequired": [
+    "Screenshot of the SMS / WhatsApp message with sender ID and complete link text",
+    "Screenshot of the phishing web page if captured",
+    "Transaction receipts or bank debit SMS if financial transfer occurred",
+    "Browser history showing the exact visited phishing domain"
+  ],
+  "source": "CERT-In Phishing Incident Advisory & MHA I4C",
+  "sourceUrl": "https://www.cybercrime.gov.in",
+  "authority": "CERT-In / I4C",
+  "verifiedAt": "2026-08-26"
+}

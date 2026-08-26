@@ -1,1 +1,15 @@
-{}
+{
+  "version": "1.0.0",
+  "lastUpdated": "2026-08-26",
+  "jurisdiction": "India (National)",
+  "description": "Authoritative, verified Indian cyber-fraud response knowledge base for citizen first-response triage.",
+  "officialAuthorities": [
+    "Ministry of Home Affairs (MHA)",
+    "Indian Cybercrime Coordination Centre (I4C)",
+    "National Cyber Crime Reporting Portal (NCRP - cybercrime.gov.in)",
+    "Reserve Bank of India (RBI)",
+    "National Payments Corporation of India (NPCI)",
+    "Department of Telecommunications (DoT)"
+  ],
+  "goldenHourProtocolNotice": "The 2-hour window is an emergency operational heuristic based on inter-bank transaction settlement windows under the CFCFRMS / 1930 mechanism to maximize lien/freeze probability before fund dispersal."
+}

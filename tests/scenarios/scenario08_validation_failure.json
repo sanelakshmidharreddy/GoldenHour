@@ -1,0 +1,24 @@
+{
+  "id": "scenario_08_validation_failure",
+  "name": "Validation Failure: Invalid Negative Amount and Bad Occurred Date",
+  "description": "Invalid payloads (negative transaction amount, future occurrence timestamp) must be rejected with 400 Bad Request and not corrupt incident state.",
+  "invalidPayload": {
+    "fraudType": "upi_scam",
+    "incidentOccurredAt": "invalid-timestamp-format",
+    "description": "Invalid intake attempt",
+    "victim": {
+      "name": "Test User",
+      "phone": "123"
+    },
+    "transactions": [
+      {
+        "amount": -5000,
+        "currency": "INR"
+      }
+    ]
+  },
+  "expectedResults": {
+    "httpStatus": 400,
+    "errorCode": "VALIDATION_ERROR"
+  }
+}

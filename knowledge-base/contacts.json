@@ -1,1 +1,57 @@
-{}
+{
+  "helpline_1930": {
+    "id": "helpline_1930",
+    "name": "National Cyber Crime Helpline",
+    "category": "National Emergency Helpline",
+    "phone": "1930",
+    "operatingHours": "24x7",
+    "authority": "Indian Cybercrime Coordination Centre (I4C), MHA",
+    "description": "Toll-free national citizen helpline for reporting financial cyber fraud and initiating beneficiary account freezing under CFCFRMS."
+  },
+  "ncrp_portal": {
+    "id": "ncrp_portal",
+    "name": "National Cyber Crime Reporting Portal",
+    "category": "Official Web Portal",
+    "website": "https://cybercrime.gov.in",
+    "operatingHours": "24x7 Online",
+    "authority": "Ministry of Home Affairs",
+    "description": "Official national web portal for lodging formal cyber crime complaints and tracking police acknowledgment numbers."
+  },
+  "emergency_112": {
+    "id": "emergency_112",
+    "name": "Emergency Response Support System (ERSS)",
+    "category": "Police Emergency",
+    "phone": "112",
+    "operatingHours": "24x7",
+    "authority": "State Police / MHA",
+    "description": "All-India unified emergency response number for urgent police dispatch and assistance."
+  },
+  "rbi_sachet": {
+    "id": "rbi_sachet",
+    "name": "RBI Sachet Portal",
+    "category": "Financial Regulatory Portal",
+    "website": "https://sachet.rbi.org.in",
+    "operatingHours": "24x7 Online",
+    "authority": "Reserve Bank of India",
+    "description": "Official platform to report illegal deposit collection, unauthorized digital lending apps, and unregistered financial entities."
+  },
+  "rbi_cms": {
+    "id": "rbi_cms",
+    "name": "RBI Complaint Management System (Banking Ombudsman)",
+    "category": "Banking Grievance Escalation",
+    "website": "https://cms.rbi.org.in",
+    "phone": "14448",
+    "operatingHours": "9:30 AM - 5:30 PM (Working Days)",
+    "authority": "Reserve Bank of India",
+    "description": "Escalation platform for unresolved banking fraud grievances when the bank fails to respond satisfactorily within 30 days."
+  },
+  "dot_chakshu": {
+    "id": "dot_chakshu",
+    "name": "DoT Chakshu (Sanchar Saathi)",
+    "category": "Telecom Fraud Reporting",
+    "website": "https://sancharsaathi.gov.in/sfc/",
+    "operatingHours": "24x7 Online",
+    "authority": "Department of Telecommunications",
+    "description": "Facility to report suspected fraudulent SMS, international spoofed calls, and malicious WhatsApp communication."
+  }
+}

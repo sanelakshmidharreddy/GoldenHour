@@ -1,1 +1,30 @@
-{}
+{
+  "id": "fake_loan_app",
+  "name": "Illegal Loan App / Extortion Scam",
+  "category": "Online Financial Fraud",
+  "urgencyLevel": "high",
+  "ncrpCategory": "Online Financial Fraud -> Illegal Loan Apps / Extortion",
+  "helplineToCall": "1930 / 112",
+  "summary": "Fraudulent instant loan apps that disburse small unauthorized amounts, charge excessive hidden fees within days, and use access to device contacts and photo galleries to blackmail and harass victims.",
+  "rules": [
+    "Borrow only from RBI-registered Banks and NBFCs listed on the RBI Sachet portal.",
+    "Never grant permissions to your contacts list, photo gallery, or camera for instant credit applications."
+  ],
+  "initialActionChecklist": [
+    "Immediately uninstall the fraudulent loan application and revoke all app permissions in device settings.",
+    "Do not transfer any extortion amounts or penalty payments demanded by recovery agents.",
+    "Preserve screenshots of all WhatsApp/SMS threats, abusive messages, and payment QR codes.",
+    "File an immediate complaint on cybercrime.gov.in under Illegal Loan Apps category and on RBI Sachet portal.",
+    "Notify family, friends, and contacts that your device was compromised by a scam app and to ignore fake abusive messages."
+  ],
+  "evidenceRequired": [
+    "Screenshots of WhatsApp/SMS extortion messages, threats, and payment requests",
+    "App name, download URL, or APK file details",
+    "Bank statements showing any loan amount credited and subsequent extortion debits",
+    "Caller phone numbers and UPI IDs provided for extortion payments"
+  ],
+  "source": "RBI Sachet Advisory on Illegal Digital Lending Apps & MHA I4C",
+  "sourceUrl": "https://sachet.rbi.org.in",
+  "authority": "RBI / MHA",
+  "verifiedAt": "2026-08-26"
+}

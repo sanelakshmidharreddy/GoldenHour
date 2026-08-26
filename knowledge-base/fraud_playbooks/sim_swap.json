@@ -1,1 +1,30 @@
-{}
+{
+  "id": "sim_swap",
+  "name": "SIM Swap / Unauthorized eSIM Fraud",
+  "category": "Telecom / Identity Cyber Crime",
+  "urgencyLevel": "critical",
+  "ncrpCategory": "Telecom / Identity Cyber Crime -> SIM Swap Fraud",
+  "helplineToCall": "Telecom Provider / 1930",
+  "summary": "Fraudsters obtain an unauthorized duplicate physical SIM or initiate an unapproved eSIM transfer to intercept SMS OTPs, hijack WhatsApp accounts, and execute banking transactions in the victim's name.",
+  "rules": [
+    "If your mobile phone suddenly loses cellular signal and displays 'No Service' unexpectedly, investigate immediately.",
+    "Never forward telecom verification SMS or share eSIM configuration QR codes with third parties."
+  ],
+  "initialActionChecklist": [
+    "Immediately contact your telecom service provider customer care from an alternate phone to block the swapped SIM.",
+    "Contact your primary banks immediately to freeze Netbanking, UPI, and debit cards linked to the compromised mobile number.",
+    "Dial 1930 immediately if any unauthorized debits have already taken place on your bank accounts.",
+    "Visit the nearest authorized telecom operator store with original government ID to reclaim your physical SIM.",
+    "Check email accounts linked to the phone number for password reset alerts and enable app-based 2FA."
+  ],
+  "evidenceRequired": [
+    "Exact timestamp when cellular network signal was lost on the device",
+    "Telecom SMS or email notifications regarding SIM upgrade / eSIM transfer request",
+    "Bank statements showing any unauthorized transactions carried out during the network outage",
+    "Telecom customer support service request / ticket numbers"
+  ],
+  "source": "Department of Telecommunications (DoT) & RBI Advisory on SIM Swap Fraud",
+  "sourceUrl": "https://www.rbi.org.in",
+  "authority": "DoT / RBI",
+  "verifiedAt": "2026-08-26"
+}

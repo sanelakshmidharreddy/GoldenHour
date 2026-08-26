@@ -1,0 +1,28 @@
+{
+  "id": "scenario_10_empty_kb",
+  "name": "Resilient Fallback on Missing / Corrupted Knowledge Base",
+  "description": "When the knowledge base directory is missing or empty, GoldenHour must fallback gracefully to built-in emergency guidance without crashing.",
+  "intakePayload": {
+    "fraudType": "upi_scam",
+    "incidentOccurredAtOffsetMinutes": 20,
+    "description": "Standard UPI scam under simulated empty KB condition.",
+    "victim": {
+      "name": "Test Fallback User",
+      "phone": "9876500010"
+    },
+    "transactions": [
+      {
+        "amount": 10000,
+        "currency": "INR",
+        "transactionRef": "UPI/TEST101010"
+      }
+    ]
+  },
+  "expectedResults": {
+    "urgencyWindow": "GOLDEN_HOUR",
+    "isWithinGoldenHour": true,
+    "totalAmount": 10000,
+    "guidanceContains": ["1930", "bank", "UTR"],
+    "firDraftContains": ["Test Fallback User", "10,000", "UPI/TEST101010"]
+  }
+}

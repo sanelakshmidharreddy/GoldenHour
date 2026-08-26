@@ -1,0 +1,37 @@
+{
+  "id": "scenario_06_sim_swap",
+  "name": "SIM Swap / Unauthorized eSIM Hijack",
+  "description": "Victim's phone showed 'No Service' abruptly, followed by unauthorized Netbanking transfers while cellular signal was hijacked.",
+  "intakePayload": {
+    "fraudType": "sim_swap",
+    "incidentOccurredAtOffsetMinutes": 110,
+    "description": "Phone suddenly lost cellular connectivity at 3 PM. Upon connecting to office Wi-Fi, saw emails alerting that Netbanking password was reset and Rs. 75,000 transferred via IMPS.",
+    "victim": {
+      "name": "Vikram Malhotra",
+      "phone": "9876500006",
+      "stateOrCity": "Delhi",
+      "district": "New Delhi",
+      "policeStationJurisdiction": "Special Cell Cyber Crime Unit, Mandir Marg"
+    },
+    "transactions": [
+      {
+        "amount": 75000,
+        "currency": "INR",
+        "transactionRef": "IMPS/591029384719",
+        "debitedBankOrApp": "Punjab National Bank",
+        "beneficiaryDetails": "Account: 501009182390 / HDFC"
+      }
+    ],
+    "suspect": {
+      "phoneNumbers": ["9876500006"]
+    }
+  },
+  "expectedResults": {
+    "urgencyWindow": "GOLDEN_HOUR",
+    "isWithinGoldenHour": true,
+    "totalAmount": 75000,
+    "expectedPlaybookId": "sim_swap",
+    "guidanceContains": ["telecom", "swapped", "freeze", "physical SIM", "2FA"],
+    "firDraftContains": ["Vikram Malhotra", "75,000", "IMPS/591029384719", "SIM SWAP"]
+  }
+}

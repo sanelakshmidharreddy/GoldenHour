@@ -1,1 +1,31 @@
-{}
+{
+  "id": "unknown",
+  "name": "General Cyber Financial Fraud",
+  "category": "Financial Cyber Fraud",
+  "urgencyLevel": "high",
+  "ncrpCategory": "Financial Cyber Fraud -> Other Financial Fraud",
+  "helplineToCall": "1930",
+  "summary": "Unclassified cyber financial fraud involving unauthorized electronic debit, identity manipulation, or deceptive digital transaction.",
+  "rules": [
+    "Report financial cyber fraud immediately to 1930 and your bank with UTR transaction details.",
+    "Preserve all digital evidence and do not delete suspicious SMS, call logs, or messages."
+  ],
+  "initialActionChecklist": [
+    "Immediately dial 1930 (National Cyber Crime Helpline) to report transaction details for rapid inter-bank freeze.",
+    "Note down the exact 12-digit UTR (Unique Transaction Reference) number or Txn ID from your SMS/bank alert.",
+    "Call your debited bank customer care to report unauthorized debit and request a hotlisting / freeze on netbanking/UPI.",
+    "Take clear screenshots of transaction debit messages, UPI app transaction history, and suspect chat history.",
+    "Do not click any further links or share any subsequent SMS/OTP codes sent to your phone."
+  ],
+  "evidenceRequired": [
+    "Transaction SMS and email alerts with timestamp and amount",
+    "Bank account statement / passbook copy showing debited amount",
+    "Screenshot of payment app transaction screen showing UTR / reference number",
+    "Suspect phone number, UPI handle, or website link",
+    "Screenshots of WhatsApp / Telegram / SMS conversation with suspect"
+  ],
+  "source": "National Cyber Crime Reporting Portal (NCRP) Standard Operating Procedure",
+  "sourceUrl": "https://cybercrime.gov.in",
+  "authority": "I4C / MHA",
+  "verifiedAt": "2026-08-26"
+}

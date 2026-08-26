@@ -1,1 +1,51 @@
-{}
+{
+  "upi_scam": {
+    "categoryCode": "Financial Fraud",
+    "categoryName": "Financial Fraud",
+    "subCategory": "UPI Fraud",
+    "triggers": ["upi", "qr code", "collect request", "phonepe", "gpay", "paytm", "bhim", "olx qr", "vpa"],
+    "description": "Unauthorized debits via UPI collect requests, fraudulent QR code scans, or spoofed payment receipts."
+  },
+  "otp_fraud": {
+    "categoryCode": "Financial Fraud",
+    "categoryName": "Financial Fraud",
+    "subCategory": "OTP / Vishing / Banking Impersonation",
+    "triggers": ["otp", "vishing", "bank manager", "kyc update", "credit card limit", "debit card", "cvv", "call scam"],
+    "description": "Deceptive phone calls impersonating bank/KYC officials to manipulate victims into sharing OTPs or card details."
+  },
+  "phishing": {
+    "categoryCode": "Online Financial Fraud",
+    "categoryName": "Online Financial Fraud",
+    "subCategory": "Phishing / Fake Link / Malicious Website",
+    "triggers": ["phishing", "link", "sms", "electricity bill", "power disconnection", "courier parcel", "fake website", "lottery link"],
+    "description": "Deceptive URLs and messages mimicking utility companies, couriers, or government agencies to steal credentials or payments."
+  },
+  "fake_loan_app": {
+    "categoryCode": "Online Financial Fraud",
+    "categoryName": "Online Financial Fraud",
+    "subCategory": "Illegal Loan Apps / Extortion",
+    "triggers": ["loan app", "instant credit", "blackmail", "contact access", "gallery extortion", "harassment", "apk", "7 days loan"],
+    "description": "Unregulated instant loan apps using invasive device permissions to blackmail victims and demand extortionate repayments."
+  },
+  "investment_scam": {
+    "categoryCode": "Online Financial Fraud",
+    "categoryName": "Online Financial Fraud",
+    "subCategory": "Investment / Part-time Job / Task Scam",
+    "triggers": ["telegram task", "part time job", "crypto trading", "investment", "guaranteed return", "youtube like scam", "hotel rating"],
+    "description": "Work-from-home tasks or fake investment schemes promising guaranteed high returns to elicit large deposits into mule accounts."
+  },
+  "sim_swap": {
+    "categoryCode": "Telecom / Identity Cyber Crime",
+    "categoryName": "Telecom / Identity Cyber Crime",
+    "subCategory": "SIM Swap Fraud",
+    "triggers": ["sim swap", "no network", "esim transfer", "duplicate sim", "cellular signal lost", "telecom compromise"],
+    "description": "Unauthorized acquisition of duplicate SIM or eSIM transfer to hijack phone numbers and intercept banking SMS OTPs."
+  },
+  "unknown": {
+    "categoryCode": "Financial Cyber Fraud",
+    "categoryName": "Financial Cyber Fraud",
+    "subCategory": "Other Financial Fraud",
+    "triggers": ["cheating", "fraud", "unauthorized debit", "unknown", "cybercrime"],
+    "description": "General or unclassified cyber financial fraud requiring incident intake and preliminary investigation."
+  }
+}

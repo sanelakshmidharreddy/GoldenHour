@@ -1,1 +1,42 @@
-{}
+{
+  "mha_i4c": {
+    "id": "mha_i4c",
+    "title": "Citizen Financial Cyber Fraud Reporting & Management System (CFCFRMS / 1930)",
+    "authority": "Indian Cybercrime Coordination Centre (I4C), Ministry of Home Affairs",
+    "url": "https://cybercrime.gov.in",
+    "lastVerifiedDate": "2026-08-26",
+    "description": "National helpline 1930 and inter-bank automated transaction freeze and tracing network."
+  },
+  "ncrp_portal": {
+    "id": "ncrp_portal",
+    "title": "National Cyber Crime Reporting Portal",
+    "authority": "Ministry of Home Affairs, Government of India",
+    "url": "https://cybercrime.gov.in",
+    "lastVerifiedDate": "2026-08-26",
+    "description": "Official national portal for lodging cyber crime and financial fraud complaints."
+  },
+  "rbi_customer_liability": {
+    "id": "rbi_customer_liability",
+    "title": "Customer Protection – Limiting Liability of Customers in Unauthorised Electronic Banking Transactions",
+    "authority": "Reserve Bank of India (RBI Circular DBR.No.Leg.BC.78/09.07.005/2017-18)",
+    "url": "https://www.rbi.org.in",
+    "lastVerifiedDate": "2026-08-26",
+    "description": "Statutory rules establishing zero/limited customer liability when unauthorized electronic transactions are reported promptly to banks."
+  },
+  "npci_upi_safety": {
+    "id": "npci_upi_safety",
+    "title": "Unified Payments Interface (UPI) Safety Guidelines & Dispute Resolution",
+    "authority": "National Payments Corporation of India (NPCI)",
+    "url": "https://www.npci.org.in",
+    "lastVerifiedDate": "2026-08-26",
+    "description": "UPI transaction protocols, PIN entry safety rules, and transaction dispute workflows."
+  },
+  "dot_sancharsaathi": {
+    "id": "dot_sancharsaathi",
+    "title": "Sanchar Saathi & Chakshu Citizen Reporting Facility",
+    "authority": "Department of Telecommunications (DoT), Ministry of Communications",
+    "url": "https://sancharsaathi.gov.in",
+    "lastVerifiedDate": "2026-08-26",
+    "description": "Portal for reporting suspected fraud SMS, fraudulent calls, and lost/swapped mobile connections."
+  }
+}

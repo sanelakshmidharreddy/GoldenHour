@@ -1,0 +1,39 @@
+{
+  "id": "scenario_01_upi_scam",
+  "name": "Immediate UPI / QR Code Fraud (within 15 minutes)",
+  "description": "Victim was tricked into scanning a fake refund QR code on a classifieds portal 15 minutes ago, resulting in unauthorized debit.",
+  "intakePayload": {
+    "fraudType": "upi_scam",
+    "incidentOccurredAtOffsetMinutes": 15,
+    "description": "Suspect buyer on OLX asked me to scan a QR code to receive advance payment for furniture. Rs. 25,000 was debited instead.",
+    "victim": {
+      "name": "Amit Sharma",
+      "phone": "9876500001",
+      "stateOrCity": "Karnataka",
+      "district": "Bengaluru Urban",
+      "policeStationJurisdiction": "Cyber Crime PS, Bengaluru"
+    },
+    "transactions": [
+      {
+        "amount": 25000,
+        "currency": "INR",
+        "transactionRef": "UPI/423891029384",
+        "debitedBankOrApp": "State Bank of India / Google Pay",
+        "beneficiaryDetails": "refund.desk@okhdfc"
+      }
+    ],
+    "suspect": {
+      "phoneNumbers": ["9876543210"],
+      "upiIds": ["refund.desk@okhdfc"]
+    }
+  },
+  "expectedResults": {
+    "urgencyWindow": "GOLDEN_HOUR",
+    "isWithinGoldenHour": true,
+    "totalAmount": 25000,
+    "requiredHelpline": "1930",
+    "expectedPlaybookId": "upi_scam",
+    "guidanceContains": ["1930", "UTR", "debit", "QR"],
+    "firDraftContains": ["Amit Sharma", "UPI/423891029384", "25,000", "refund.desk@okhdfc"]
+  }
+}

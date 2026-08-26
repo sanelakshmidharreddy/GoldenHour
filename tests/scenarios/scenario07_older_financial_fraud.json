@@ -1,0 +1,36 @@
+{
+  "id": "scenario_07_older_financial_fraud",
+  "name": "Older Financial Fraud (> 24 Hours / Extended Window)",
+  "description": "Incident occurred 36 hours ago. System must classify as EXTENDED, provide realistic guidance, and still encourage reporting without false claims that reporting is useless.",
+  "intakePayload": {
+    "fraudType": "upi_scam",
+    "incidentOccurredAtOffsetMinutes": 2160,
+    "description": "Fraudulent debit occurred 36 hours ago when victim authorized an unverified payment link. Only noticed upon receiving printed account statement.",
+    "victim": {
+      "name": "Ananya Sen",
+      "phone": "9876500007",
+      "stateOrCity": "Karnataka",
+      "district": "Bengaluru",
+      "policeStationJurisdiction": "Koramangala Police Station"
+    },
+    "transactions": [
+      {
+        "amount": 30000,
+        "currency": "INR",
+        "transactionRef": "UPI/309182390192",
+        "debitedBankOrApp": "Canara Bank",
+        "beneficiaryDetails": "merchant.collect@axl"
+      }
+    ],
+    "suspect": {
+      "upiIds": ["merchant.collect@axl"]
+    }
+  },
+  "expectedResults": {
+    "urgencyWindow": "EXTENDED",
+    "isWithinGoldenHour": false,
+    "totalAmount": 30000,
+    "guidanceContains": ["1930", "bank", "dispute", "FIR"],
+    "firDraftContains": ["Ananya Sen", "30,000", "UPI/309182390192"]
+  }
+}
