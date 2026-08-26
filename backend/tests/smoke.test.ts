@@ -49,6 +49,8 @@ describe('Production Smoke & Release Readiness Tests (Ticket 06)', () => {
       assert.ok(css.includes('.emergency-header'));
       assert.ok(css.includes('.btn-emergency'));
       assert.ok(css.includes('.judge-hint-callout'));
+      assert.ok(css.includes('.reimagined-section'));
+      assert.ok(css.includes('.ecosystem-grid'));
     } finally {
       await server.close();
     }
@@ -61,7 +63,14 @@ describe('Production Smoke & Release Readiness Tests (Ticket 06)', () => {
       assert.strictEqual(res.status, 200);
       const js = await res.text();
       assert.ok(js.includes('App'));
-      assert.ok(js.includes('btn-start-intake') || js.includes('incident-form'));
+      assert.ok(js.includes('btn-start-intake') || js.includes('btn-load-demo'));
+      assert.ok(js.includes('renderLandingScreen'));
+
+      // Also verify component module serving
+      const compRes = await server.fetch('/dist/components/LandingScreen.js');
+      assert.strictEqual(compRes.status, 200);
+      const compJs = await compRes.text();
+      assert.ok(compJs.includes('reimagined-section') || compJs.includes('Reimagining the Citizen Response Experience'));
     } finally {
       await server.close();
     }

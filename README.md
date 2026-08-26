@@ -21,13 +21,34 @@ When a cyber fraud occurs (e.g. UPI QR scam, OTP vishing, phishing link, instant
 
 ---
 
-## 💡 The Solution
+## 💡 The Solution & Public-Service Reimagination
 
-GoldenHour provides a zero-friction, step-by-step emergency workflow:
+GoldenHour reimagines the citizen first-response into one guided emergency workflow:
 - **2-Minute Structured Intake**: Captures fraud category, occurrence timeline, transaction references (UTR/Txn ID), debited bank, beneficiary targets, and suspect identifiers.
 - **Real-Time Golden Hour Triage**: Calculates elapsed minutes and visualizes the urgency window (`GOLDEN_HOUR < 120m` vs `CRITICAL_24H` vs `EXTENDED`).
 - **Source-Backed Guidance**: Delivers immediate action checklists, evidence preservation requirements, and official emergency contacts tailored to the specific fraud type.
 - **Ready Preparation Artifacts**: Generates copyable and downloadable scripts, complaints, and payload references.
+
+### 🔄 What is Being Reimagined?
+
+| Aspect | Today's Citizen Friction | GoldenHour's Reimagined Journey |
+|---|---|---|
+| **Initial Reaction** | Panic, disorientation, searching random websites | 1-click triage with computed Golden Hour (<120m) urgency window |
+| **Emergency Helplines** | Unclear which numbers to dial or what to say | Tailored **1930 Helpline Verbal Script** with UTRs and key points ready to read |
+| **Police Reporting** | Complex legal drafting, unsure which sections apply | Pre-formatted **Formal FIR Complaint Draft** citing IT Act 66C & 66D |
+| **Portal Filing** | Manual categorization and repetitive form fields | Structured **NCRP Reference Payload** formatted for `cybercrime.gov.in` |
+| **Evidence Preservation** | Screenshots lost or deleted during phone reset | Step-by-step digital evidence preservation checklist tailored to the scam |
+
+---
+
+## 🏛️ Connected to India's Official Public-Service Ecosystem
+
+GoldenHour is an emergency preparation assistant designed around India's authorized cybercrime channels:
+- **1930 Helpline (MHA / I4C)**: Emergency hotline for inter-bank transaction freeze via the Citizen Financial Cyber Fraud Reporting and Management System (CFCFRMS).
+- **National Cybercrime Portal (`cybercrime.gov.in`)**: Canonical national portal for formal cyber financial fraud complaint filing.
+- **Debited Banks & Payment Providers**: Zero-liability dispute reporting within the 3-day RBI window under Circular DBR.No.Leg.BC.78/09.07.005/2017-18.
+- **Cyber Police Stations**: Jurisdictional FIR registration under Sections 66C (Identity Theft) & 66D (Cheating by Personation).
+- **DoT Sanchar Saathi (Chakshu)**: Direct facility for reporting fraudulent phone numbers, SMS, and WhatsApp handles.
 
 ---
 
@@ -170,4 +191,4 @@ All guidance and playbooks in `knowledge-base/` are grounded in official Indian 
 
 ## 🏁 Submission Status
 
-This repository is at **Ticket 06 — Demo Polish, Production Packaging & Hackathon Presentation Readiness**. The complete application is verified with 49 automated tests across 15 test suites with 0 failures and 0 external AI dependencies. Ready for final evaluation.
+This repository is at **Ticket 07 — Final Public-Service Reimagination & Hackathon Submission Readiness**. The complete end-to-end citizen emergency response prototype is verified with 49 automated tests across 15 test suites with 0 failures and 0 external AI dependencies. Ready for hackathon evaluation.
