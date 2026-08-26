@@ -7,7 +7,18 @@ export const URLENCODED_BODY_LIMIT = '1mb';
 
 export function createSecurityHeadersMiddleware(config: AppConfig): RequestHandler {
   return helmet({
-    contentSecurityPolicy: config.isProduction ? undefined : false,
+    contentSecurityPolicy: config.isProduction
+      ? {
+          directives: {
+            defaultSrc: ["'self'"],
+            scriptSrc: ["'self'"],
+            styleSrc: ["'self'", 'https://fonts.googleapis.com', "'unsafe-inline'"],
+            fontSrc: ["'self'", 'https://fonts.gstatic.com', 'data:'],
+            imgSrc: ["'self'", 'data:'],
+            connectSrc: ["'self'"],
+          },
+        }
+      : false,
     crossOriginEmbedderPolicy: false,
   });
 }
@@ -15,6 +26,7 @@ export function createSecurityHeadersMiddleware(config: AppConfig): RequestHandl
 export function createCorsMiddleware(config: AppConfig): RequestHandler {
   return (req: Request, res: Response, next: NextFunction): void => {
     const origin = req.headers.origin;
+    const host = req.get('host');
 
     let isAllowed = false;
     if (!origin) {
@@ -22,6 +34,7 @@ export function createCorsMiddleware(config: AppConfig): RequestHandler {
       isAllowed = true;
     } else if (
       origin === config.publicBackendOrigin ||
+      (host && (origin === `http://${host}` || origin === `https://${host}`)) ||
       (!config.isProduction &&
         (origin.startsWith('http://localhost:') || origin.startsWith('http://127.0.0.1:')))
     ) {

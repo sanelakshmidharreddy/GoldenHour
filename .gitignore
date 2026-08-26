@@ -9,8 +9,11 @@ node_modules/
 .pnpm-store/
 
 # ---------- Build outputs ----------
-dist/
+/dist/
+backend/dist/
+backend/dist_tests/
 dist_tests/
+!frontend/public/dist/
 build/
 out/
 .next/

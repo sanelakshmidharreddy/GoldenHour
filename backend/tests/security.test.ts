@@ -40,6 +40,22 @@ describe('Security Middleware', () => {
       }
     });
 
+    it('should allow requests from the same-origin host', async () => {
+      const server = await startTestServer(app);
+      try {
+        const host = server.origin.replace(/^http:\/\//, '');
+        const res = await server.fetch('/health', {
+          headers: {
+            Origin: server.origin,
+            Host: host,
+          },
+        });
+        assert.strictEqual(res.status, 200);
+      } finally {
+        await server.close();
+      }
+    });
+
     it('should allow requests without an Origin header', async () => {
       const server = await startTestServer(app);
       try {

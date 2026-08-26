@@ -6,11 +6,11 @@
   "main": "dist/server.js",
   "scripts": {
     "dev": "node dist/server.js",
-    "build": "tsc",
+    "build": "tsc && tsc -p ../frontend/tsconfig.json",
     "start": "node dist/server.js",
     "test": "tsc -p tsconfig.test.json && node --test dist_tests/tests/api.test.js dist_tests/tests/app.test.js dist_tests/tests/config.test.js dist_tests/tests/health.test.js dist_tests/tests/kb.test.js dist_tests/tests/security.test.js dist_tests/tests/incident.test.js dist_tests/tests/guidance.test.js dist_tests/tests/artifacts.test.js dist_tests/tests/frontendE2E.test.js dist_tests/tests/scenarios.test.js dist_tests/tests/smoke.test.js",
     "test:watch": "node --test --watch dist_tests/tests/api.test.js dist_tests/tests/app.test.js dist_tests/tests/config.test.js dist_tests/tests/health.test.js dist_tests/tests/kb.test.js dist_tests/tests/security.test.js dist_tests/tests/incident.test.js dist_tests/tests/guidance.test.js dist_tests/tests/artifacts.test.js dist_tests/tests/frontendE2E.test.js dist_tests/tests/scenarios.test.js dist_tests/tests/smoke.test.js",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit && tsc -p ../frontend/tsconfig.json --noEmit"
   },
   "dependencies": {
     "@types/express": "^4.17.21",
