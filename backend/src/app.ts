@@ -52,10 +52,15 @@ export function createApp(options?: Partial<AppConfig> | CreateAppOptions): Expr
     path.resolve(process.cwd(), 'frontend/public'),
     path.resolve(__dirname, '../../../frontend/public'),
     path.resolve(__dirname, '../../frontend/public'),
+    path.resolve(__dirname, '../frontend/public'),
   ];
   const frontendPublicDir = candidates.find((dir) => fs.existsSync(dir));
 
   if (frontendPublicDir) {
+    const distDir = path.join(frontendPublicDir, 'dist');
+    if (fs.existsSync(distDir)) {
+      app.use('/dist', express.static(distDir, { extensions: ['js'] }));
+    }
     app.use(express.static(frontendPublicDir, { extensions: ['html', 'js'] }));
     app.get('/', (_req, res) => {
       res.sendFile(path.join(frontendPublicDir, 'index.html'));

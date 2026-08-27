@@ -84,6 +84,36 @@ describe('Production Smoke & Release Readiness Tests (Ticket 06 & 07)', () => {
     }
   });
 
+  it('GET /dist/components/* and core modules return 200 OK JavaScript', async () => {
+    const server = await startTestServer(app);
+    try {
+      const modules = [
+        '/dist/app.js',
+        '/dist/types.js',
+        '/dist/api/index.js',
+        '/dist/api/incidentApi.js',
+        '/dist/context/index.js',
+        '/dist/context/IncidentContext.js',
+        '/dist/components/index.js',
+        '/dist/components/Header.js',
+        '/dist/components/LandingScreen.js',
+        '/dist/components/IncidentForm.js',
+        '/dist/components/ResultsScreen.js',
+        '/dist/components/UrgencyBanner.js',
+        '/dist/components/ImmediateGuidance.js',
+        '/dist/components/ArtifactsViewer.js',
+        '/dist/components/DisclaimerFooter.js',
+      ];
+
+      for (const mod of modules) {
+        const res = await server.fetch(mod);
+        assert.strictEqual(res.status, 200, `Failed to load module: ${mod}`);
+      }
+    } finally {
+      await server.close();
+    }
+  });
+
   it('GET /api/v1 returns structured API directory', async () => {
     const server = await startTestServer(app);
     try {
